@@ -1,18 +1,13 @@
-version: '3.8'
-
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  app-test:
+    # เปลี่ยนจาก app เป็น app-test
+    build: .
     ports:
       - '3011:3000'
-    environment:
-      - NODE_ENV=production
-    restart: unless-stopped
     networks:
-      - app-network
+      - test-network # เปลี่ยนจาก app-network เป็น test-network
 
 networks:
-  app-network:
+  test-network:
+    # เปลี่ยนชื่อให้ตรงกัน
     driver: bridge
