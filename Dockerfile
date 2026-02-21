@@ -41,6 +41,7 @@ RUN adduser --system --uid 1001 nestjs
 # Copy only the necessary files
 COPY --from=prod-deps --chown=nestjs:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=nestjs:nodejs /app/dist ./dist
+COPY --from=builder --chown=nestjs:nodejs /app/public ./public
 
 USER nestjs
 
